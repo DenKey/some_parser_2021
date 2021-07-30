@@ -1,0 +1,23 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    connection_pool (2.2.5)
+    csv (3.2.0)
+    rack (2.2.3)
+    redis (4.4.0)
+    sidekiq (6.2.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
+    sqlite3 (1.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  csv (~> 3.2)
+  sidekiq (~> 6.2, >= 6.2.1)
+  sqlite3 (~> 1.4, >= 1.4.2)
+
+BUNDLED WITH
+   2.1.4

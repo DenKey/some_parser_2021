@@ -1,0 +1,4 @@
+product_code,product_name,description,category_code_1,category_code_2,image_name_1,image_name_2,image_name_3,status,price,inventory,available_time
+code_001,Product red shirt,description </br> brand new,category_2,category_3,image_red,image_top,image_shirt,active,99.9,10,2021-07-05T20:42:07+00:00
+code_002,Product blue shirt,description </br> brand new,category_2,category_3,image_blue,image_top,image_shirt,active,99.9,10,2021-07-05T20:42:07+00:00
+code_003,Product bag,description </br> brand new,category_3,,image_red,image_bag,,active,99.9,10,2021-07-05T20:42:07+00:00
