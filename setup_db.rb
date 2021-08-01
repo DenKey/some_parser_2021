@@ -8,7 +8,7 @@ begin
   db.execute <<-SQL
     create table products (
       id integer primary key, 
-      product_code varchar(50) unique,
+      product_code varchar(50) unique not null,
       product_name varchar(256),
       description text,
       status boolean,
@@ -22,6 +22,7 @@ begin
     create table categories (
       id integer primary key, 
       category_code varchar(256) unique,
+      category_name varchar(256),
       parent_category_code varchar(256),
       description text
     );
@@ -40,13 +41,14 @@ begin
             references categories (id) 
                on delete cascade 
                on update no action
+      UNIQUE (product_id, category_id) ON CONFLICT REPLACE
     );
   SQL
 
   db.execute <<-SQL
     create table images (
       id integer primary key, 
-      image_name varchar(256) unique,
+      image_name varchar(256) unique not null,
       image_url text,
       description text
     );
@@ -65,6 +67,7 @@ begin
             references images (id) 
                on delete cascade 
                on update no action
+      UNIQUE (image_id, product_id) ON CONFLICT REPLACE
     );
   SQL
 
@@ -81,6 +84,7 @@ begin
             references images (id) 
                on delete cascade 
                on update no action
+      UNIQUE (category_id, image_id) ON CONFLICT REPLACE
     );
   SQL
 rescue SQLite3::Exception => e

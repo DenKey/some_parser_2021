@@ -1,4 +1,4 @@
-require './base'
+require './models/base'
 
 class Product < ActiveRecord::Base
   has_and_belongs_to_many :images, join_table: "product_images"
