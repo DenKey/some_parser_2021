@@ -3,6 +3,7 @@ require 'csv'
 require './models/image'
 require './models/category'
 require './models/product'
+require 'logger'
 
 class CsvWorker
   include Sidekiq::Worker
@@ -10,6 +11,8 @@ class CsvWorker
   ROOT_CATEGORY = "category_1"
 
   def perform
+    logger = Logger.new(STDOUT)
+
     CSV.foreach(csvpath('images'), headers: true, header_converters: :symbol) do |row|
       next if row[:image_name].nil?
 
@@ -67,6 +70,10 @@ class CsvWorker
       create_relation_product_category(product, row)
       create_relation_product_image(product, row)
     end
+
+  rescue => e
+    logger.info "Woops =( Something went wrong."
+    logger.info e.message
   end
 
   private

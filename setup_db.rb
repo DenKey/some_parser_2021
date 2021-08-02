@@ -8,6 +8,7 @@ begin
   db.execute <<-SQL
     create table products (
       id integer primary key, 
+      external_id integer unique,
       product_code varchar(50) unique not null,
       product_name varchar(256),
       description text,

@@ -14,3 +14,5 @@ In separate terminal window open console
 
 Start worker in console
 ` CsvWorker.perform_async`
+
+The same process for ApiWorker
