@@ -1,5 +1,12 @@
 # Installation
 
+Install:
+* sidekiq
+* sqlite3
+* rvm
+
+Run `rvm install 2.7.4`
+Run `bundle install`
 Run `bundle exec ruby setup_db.rb` in console before start
 
 # Run
